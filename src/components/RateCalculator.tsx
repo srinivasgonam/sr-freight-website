@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Calculator, Plane, Ship, Package, Check, ArrowRight, Info, ShieldAlert } from 'lucide-react'
+import { apiFetch } from '../lib/api'
 
 interface RateEstimate {
   mode: string
@@ -51,7 +52,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
   const handleCalculate = async () => {
     setLoading(true)
     try {
-      const res = await fetch('/api/calculate', {
+      const res = await apiFetch('/api/calculate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

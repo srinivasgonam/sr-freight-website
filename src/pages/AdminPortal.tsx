@@ -18,6 +18,7 @@ import {
   RefreshCw,
 } from 'lucide-react'
 import { COMPANY } from '../data/companyInfo'
+import { apiFetch } from '../lib/api'
 
 interface Quote {
   id: number
@@ -119,7 +120,7 @@ export default function AdminPortal() {
     setPassError('')
     try {
       // The passkey is verified by the server, which returns a signed session token
-      const res = await fetch('/api/admin/login', {
+      const res = await apiFetch('/api/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ passkey }),
@@ -144,7 +145,7 @@ export default function AdminPortal() {
 
   // fetch wrapper that attaches the staff token and signs out when the session is rejected
   const adminFetch = async (url: string, init: RequestInit = {}) => {
-    const res = await fetch(url, {
+    const res = await apiFetch(url, {
       ...init,
       headers: { ...init.headers, Authorization: `Bearer ${readToken() ?? ''}` },
     })

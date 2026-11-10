@@ -14,6 +14,7 @@ import {
   ExternalLink,
 } from 'lucide-react'
 import { COMPANY } from '../data/companyInfo'
+import { apiFetch } from '../lib/api'
 
 export default function ContactPage() {
   const [activeTab, setActiveTab] = useState<'quote' | 'message'>('quote')
@@ -36,7 +37,7 @@ export default function ContactPage() {
     setMsgError(null)
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await apiFetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(msgData),

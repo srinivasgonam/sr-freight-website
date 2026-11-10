@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Send, CheckCircle2, AlertCircle, Phone, ArrowRight } from 'lucide-react'
 import { COMPANY } from '../data/companyInfo'
+import { apiFetch } from '../lib/api'
 
 interface QuoteFormProps {
   initialService?: string
@@ -45,7 +46,7 @@ export default function QuoteForm({
     setError(null)
 
     try {
-      const res = await fetch('/api/quotes', {
+      const res = await apiFetch('/api/quotes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

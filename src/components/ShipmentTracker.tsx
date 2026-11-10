@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Search, Package, Plane, Ship, CheckCircle2, Clock, MapPin, AlertCircle, ArrowRight, Printer } from 'lucide-react'
+import { apiFetch } from '../lib/api'
 
 interface Checkpoint {
   id?: number
@@ -52,7 +53,7 @@ export default function ShipmentTracker({ initialTrackingId = '', compact = fals
     setError(null)
 
     try {
-      const res = await fetch(`/api/track/${encodeURIComponent(query)}`)
+      const res = await apiFetch(`/api/track/${encodeURIComponent(query)}`)
       const data = await res.json()
 
       if (data.success && data.shipment) {

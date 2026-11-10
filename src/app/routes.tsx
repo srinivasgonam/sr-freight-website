@@ -47,4 +47,7 @@ export const router = createBrowserRouter([
   { path: '/contact', Component: ContactPage },
   { path: '/admin', Component: AdminPortal },
   { path: '*', Component: NotFoundPage },
-])
+], {
+  // Matches Vite's base so routing works when hosted under a sub-folder
+  basename: import.meta.env.BASE_URL.replace(/\/$/, '') || '/',
+})
