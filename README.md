@@ -54,7 +54,7 @@ You can deploy this entire application to any hosting service with **one command
    - Click **New Web Service** and select this GitHub repository.
    - Set **Build Command**: `pnpm install && pnpm run build` (or `npm install && npm run build`)
    - Set **Start Command**: `node server/index.js`
-   - Set **Environment Variable**: `PORT=5000`
+   - Set **Environment Variables**: `PORT=5000` and `ADMIN_PASSKEY=<a strong passkey of your choice>`
 3. Click **Deploy**. Your website will be live in 60 seconds with SSL enabled.
 
 ---
@@ -99,7 +99,8 @@ pm2 startup
 ## 🔐 Staff Operations Portal (`/admin`)
 
 - **URL**: `http://localhost:5173/admin` (or `https://your-domain.com/admin`)
-- **Default Staff Passkey**: `srfreight2025` *(also accepts `begumpet`)*
+- **Staff Passkey**: set with the `ADMIN_PASSKEY` environment variable on the server (required in production; the portal stays disabled until it is set). Local development falls back to `srfreight2025`.
+- The passkey is verified server-side; all admin API routes require the signed session token issued at sign-in (valid 12 hours).
 
 ### Admin Capabilities:
 - **Quotes Dashboard**: View customer name, phone, email, origin, destination, cargo specifications, and time submitted.

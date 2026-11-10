@@ -11,3 +11,5 @@ services:
         value: "24"
       - key: NODE_ENV
         value: production
+      - key: ADMIN_PASSKEY
+        sync: false

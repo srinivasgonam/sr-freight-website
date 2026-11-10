@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import path from 'node:path'
 import fs from 'node:fs'
+import crypto from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 import { dbService, seedInitialData } from './db.js'
 import { calculateFreightRate } from './rateEngine.js'
@@ -9,6 +10,9 @@ import { calculateFreightRate } from './rateEngine.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const app = express()
 const PORT = process.env.PORT || 5000
+
+// Behind a hosting proxy (Render etc.) so req.ip reflects the real client
+app.set('trust proxy', 1)
 
 // Initialize database with realistic seed records
 seedInitialData()
@@ -42,8 +46,78 @@ app.get('/api/health', (req, res) => {
   })
 })
 
+/* ==========================================================================
+   ADMIN AUTHENTICATION
+   Staff sign in with ADMIN_PASSKEY and receive a signed, expiring token that
+   must accompany every admin API request as "Authorization: Bearer <token>".
+   ========================================================================== */
+const IS_PRODUCTION = process.env.NODE_ENV === 'production'
+// In production the passkey must come from the environment; the fallback is for local development only.
+const ADMIN_PASSKEY = process.env.ADMIN_PASSKEY || (IS_PRODUCTION ? '' : 'srfreight2025')
+const TOKEN_TTL_MS = 12 * 60 * 60 * 1000
+const LOGIN_WINDOW_MS = 15 * 60 * 1000
+const LOGIN_MAX_ATTEMPTS = 10
+const loginAttempts = new Map()
+
+if (!ADMIN_PASSKEY) {
+  console.warn('[AUTH] ADMIN_PASSKEY is not set — the staff portal is disabled until it is configured.')
+}
+
+const safeEqual = (a, b) => {
+  const ha = crypto.createHash('sha256').update(String(a)).digest()
+  const hb = crypto.createHash('sha256').update(String(b)).digest()
+  return crypto.timingSafeEqual(ha, hb)
+}
+
+const signExpiry = (expiry) => crypto.createHmac('sha256', ADMIN_PASSKEY).update(`admin:${expiry}`).digest('hex')
+
+const issueAdminToken = () => {
+  const expiry = Date.now() + TOKEN_TTL_MS
+  return `${expiry}.${signExpiry(expiry)}`
+}
+
+const isValidAdminToken = (token) => {
+  if (!ADMIN_PASSKEY || typeof token !== 'string') return false
+  const [expiry, signature] = token.split('.')
+  if (!expiry || !signature || !/^\d+$/.test(expiry)) return false
+  if (Number(expiry) < Date.now()) return false
+  return safeEqual(signature, signExpiry(expiry))
+}
+
+const requireAdmin = (req, res, next) => {
+  const header = req.get('authorization') || ''
+  const token = header.startsWith('Bearer ') ? header.slice(7) : ''
+  if (!isValidAdminToken(token)) {
+    return res.status(401).json({ success: false, error: 'Staff sign-in required.' })
+  }
+  next()
+}
+
+app.post('/api/admin/login', (req, res) => {
+  if (!ADMIN_PASSKEY) {
+    return res.status(503).json({ success: false, error: 'Staff portal is not configured on this server.' })
+  }
+
+  const now = Date.now()
+  const key = req.ip || 'unknown'
+  const entry = loginAttempts.get(key)
+  const attempts = entry && now - entry.first < LOGIN_WINDOW_MS ? entry : { first: now, count: 0 }
+  if (attempts.count >= LOGIN_MAX_ATTEMPTS) {
+    return res.status(429).json({ success: false, error: 'Too many attempts. Please try again in 15 minutes.' })
+  }
+
+  if (!safeEqual(req.body?.passkey ?? '', ADMIN_PASSKEY)) {
+    attempts.count += 1
+    loginAttempts.set(key, attempts)
+    return res.status(401).json({ success: false, error: 'Invalid passkey.' })
+  }
+
+  loginAttempts.delete(key)
+  res.json({ success: true, token: issueAdminToken(), expiresInMs: TOKEN_TTL_MS })
+})
+
 // Endpoint to save generated emblem asset
-app.post('/api/save-emblem', (req, res) => {
+app.post('/api/save-emblem', requireAdmin, (req, res) => {
   try {
     const { base64Data } = req.body
     if (!base64Data) return res.status(400).json({ error: 'No data' })
@@ -59,7 +133,7 @@ app.post('/api/save-emblem', (req, res) => {
 })
 
 // 2. Metrics / Stats (for Admin Overview)
-app.get('/api/stats', (req, res) => {
+app.get('/api/stats', requireAdmin, (req, res) => {
   try {
     const stats = dbService.getStats()
     res.json({ success: true, stats })
@@ -70,7 +144,7 @@ app.get('/api/stats', (req, res) => {
 })
 
 // 3. Quotes API
-app.get('/api/quotes', (req, res) => {
+app.get('/api/quotes', requireAdmin, (req, res) => {
   try {
     const { status, search } = req.query
     const quotes = dbService.getQuotes({ status, search })
@@ -119,7 +193,7 @@ app.post('/api/quotes', (req, res) => {
   }
 })
 
-app.patch('/api/quotes/:id', (req, res) => {
+app.patch('/api/quotes/:id', requireAdmin, (req, res) => {
   try {
     const { id } = req.params
     const updated = dbService.updateQuote(id, req.body)
@@ -133,7 +207,7 @@ app.patch('/api/quotes/:id', (req, res) => {
   }
 })
 
-app.delete('/api/quotes/:id', (req, res) => {
+app.delete('/api/quotes/:id', requireAdmin, (req, res) => {
   try {
     const { id } = req.params
     dbService.deleteQuote(id)
@@ -165,7 +239,7 @@ app.get('/api/track/:trackingId', (req, res) => {
   }
 })
 
-app.get('/api/shipments', (req, res) => {
+app.get('/api/shipments', requireAdmin, (req, res) => {
   try {
     const shipments = dbService.getAllShipments()
     res.json({ success: true, shipments })
@@ -175,7 +249,7 @@ app.get('/api/shipments', (req, res) => {
   }
 })
 
-app.post('/api/track', (req, res) => {
+app.post('/api/track', requireAdmin, (req, res) => {
   try {
     const created = dbService.createShipment(req.body)
     res.status(201).json({ success: true, shipment: created })
@@ -185,7 +259,7 @@ app.post('/api/track', (req, res) => {
   }
 })
 
-app.patch('/api/track/:trackingId', (req, res) => {
+app.patch('/api/track/:trackingId', requireAdmin, (req, res) => {
   try {
     const { trackingId } = req.params
     const updated = dbService.updateShipment(trackingId, req.body)
@@ -233,7 +307,7 @@ app.post('/api/contact', (req, res) => {
   }
 })
 
-app.get('/api/contact', (req, res) => {
+app.get('/api/contact', requireAdmin, (req, res) => {
   try {
     const messages = dbService.getContactMessages()
     res.json({ success: true, messages })

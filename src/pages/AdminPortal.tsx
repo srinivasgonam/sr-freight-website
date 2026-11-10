@@ -57,10 +57,29 @@ interface Shipment {
   created_at: string
 }
 
+const TOKEN_KEY = 'srfreight-admin-token'
+
+const readToken = (): string | null => {
+  try {
+    return sessionStorage.getItem(TOKEN_KEY)
+  } catch {
+    return null
+  }
+}
+
+const storeToken = (token: string | null) => {
+  try {
+    if (token) sessionStorage.setItem(TOKEN_KEY, token)
+    else sessionStorage.removeItem(TOKEN_KEY)
+  } catch {
+    // sessionStorage unavailable; the session simply won't survive a reload
+  }
+}
+
 export default function AdminPortal() {
-  const [authenticated, setAuthenticated] = useState(false)
+  const [authenticated, setAuthenticated] = useState(() => Boolean(readToken()))
   const [passkey, setPasskey] = useState('')
-  const [passError, setPassError] = useState(false)
+  const [passError, setPassError] = useState('')
 
   const [activeTab, setActiveTab] = useState<'quotes' | 'shipments' | 'contacts'>('quotes')
   const [quotes, setQuotes] = useState<Quote[]>([])
@@ -95,25 +114,56 @@ export default function AdminPortal() {
   })
 
   // Check authentication
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Default passkey for SR Freight operations desk
-    if (passkey === 'srfreight2025' || passkey === 'admin' || passkey === 'begumpet') {
-      setAuthenticated(true)
-      setPassError(false)
-    } else {
-      setPassError(true)
+    setPassError('')
+    try {
+      // The passkey is verified by the server, which returns a signed session token
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ passkey }),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (res.ok && data.token) {
+        storeToken(data.token)
+        setPasskey('')
+        setAuthenticated(true)
+      } else {
+        setPassError(data.error || 'Sign-in failed. Please try again.')
+      }
+    } catch {
+      setPassError('Could not reach the server. Please try again.')
     }
+  }
+
+  const signOut = () => {
+    storeToken(null)
+    setAuthenticated(false)
+  }
+
+  // fetch wrapper that attaches the staff token and signs out when the session is rejected
+  const adminFetch = async (url: string, init: RequestInit = {}) => {
+    const res = await fetch(url, {
+      ...init,
+      headers: { ...init.headers, Authorization: `Bearer ${readToken() ?? ''}` },
+    })
+    if (res.status === 401) {
+      signOut()
+      setPassError('Your session has expired. Please sign in again.')
+      throw new Error('Unauthorized')
+    }
+    return res
   }
 
   const fetchData = async () => {
     setLoading(true)
     try {
       const [resQuotes, resShipments, resContacts, resStats] = await Promise.all([
-        fetch(`/api/quotes?status=${quoteFilter}&search=${encodeURIComponent(quoteSearch)}`),
-        fetch('/api/shipments'),
-        fetch('/api/contact'),
-        fetch('/api/stats'),
+        adminFetch(`/api/quotes?status=${quoteFilter}&search=${encodeURIComponent(quoteSearch)}`),
+        adminFetch('/api/shipments'),
+        adminFetch('/api/contact'),
+        adminFetch('/api/stats'),
       ])
 
       const dQuotes = await resQuotes.json()
@@ -140,7 +190,7 @@ export default function AdminPortal() {
 
   const handleUpdateQuote = async (id: number, status: string, quoted_amount?: number) => {
     try {
-      const res = await fetch(`/api/quotes/${id}`, {
+      const res = await adminFetch(`/api/quotes/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status, quoted_amount }),
@@ -157,7 +207,7 @@ export default function AdminPortal() {
   const handleDeleteQuote = async (id: number) => {
     if (!confirm('Are you sure you want to delete this quote record?')) return
     try {
-      await fetch(`/api/quotes/${id}`, { method: 'DELETE' })
+      await adminFetch(`/api/quotes/${id}`, { method: 'DELETE' })
       setQuotes(quotes.filter((q) => q.id !== id))
     } catch (err) {
       console.error('Delete quote failed:', err)
@@ -167,7 +217,7 @@ export default function AdminPortal() {
   const handleCreateShipment = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const res = await fetch('/api/track', {
+      const res = await adminFetch('/api/track', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newShipmentData),
@@ -227,13 +277,11 @@ export default function AdminPortal() {
               type="password"
               value={passkey}
               onChange={(e) => setPasskey(e.target.value)}
-              placeholder="Enter Staff Passkey (default: srfreight2025)"
+              placeholder="Enter Staff Passkey"
               className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-orange-500 font-mono text-center tracking-wider"
             />
             {passError && (
-              <p className="text-xs text-red-400 font-semibold">
-                Invalid passkey. Hint: Use <code className="bg-white/10 px-1 py-0.5 rounded">srfreight2025</code>
-              </p>
+              <p className="text-xs text-red-400 font-semibold">{passError}</p>
             )}
             <button
               type="submit"
@@ -285,7 +333,7 @@ export default function AdminPortal() {
             </button>
             <button
               type="button"
-              onClick={() => setAuthenticated(false)}
+              onClick={signOut}
               className="px-3 py-1.5 bg-red-500/10 hover:bg-red-500/20 text-red-300 border border-red-500/20 rounded-lg text-xs font-semibold transition"
             >
               Sign Out
