@@ -1,0 +1,20 @@
+node_modules/
+dist/
+build/
+.cache/
+.env*
+.vite/
+vite.config.*.timestamp-*
+*.tsbuildinfo
+*-debug.log*
+logs/
+*.log
+.claude-replay.*
+.tmp-*
+
+# beside it.
+/.plugins/
+/.opencode-skills/
+
+# Local SQLite database (runtime data, recreated and seeded on start)
+server/data/
