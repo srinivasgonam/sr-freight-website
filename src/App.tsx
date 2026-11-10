@@ -77,31 +77,28 @@ export default function App() {
             />
           </div>
 
-          <div className="heroContent shell relative z-10 pt-10 sm:pt-14 lg:pt-16 pb-12 sm:pb-16 lg:pb-18">
+          <div className="heroContent shell relative z-10 py-12 sm:py-16 lg:py-20">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               {/* Left Column: Hero Text */}
               <div className="lg:col-span-7 space-y-5 sm:space-y-6">
-                <div className="eyebrow inline-flex items-center gap-2 px-3 py-1 bg-white/10 border border-white/15 rounded-full text-xs font-semibold text-orange-400">
-                  <span className="w-2 h-2 rounded-full bg-orange-500 animate-ping" />
-                  HYDERABAD’S PREMIER FREIGHT & CARGO FORWARDER (EST. 1995)
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-white/10 border border-white/15 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-[0.14em] text-orange-300">
+                  <span className="w-2 h-2 shrink-0 rounded-full bg-orange-500 animate-pulse" />
+                  <span>Hyderabad’s Premier Freight & Cargo Forwarder · Est. 1995</span>
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08]">
+                <h1 className="text-[2.6rem] sm:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.04] drop-shadow-[0_8px_40px_rgba(0,0,0,.45)]">
                   Your cargo. <br />
                   <em className="gradient-text not-italic font-semibold">Across borders.</em>
                 </h1>
 
-                <p className="text-sm sm:text-base text-white/80 max-w-xl leading-relaxed">
-                  Headquartered in Begumpet, Hyderabad with{' '}
-                  <span className="text-white font-bold bg-orange-500/15 text-orange-300 px-2 py-0.5 rounded-lg border border-orange-500/30 inline-flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
-                    28+ Years of Proven Logistics Experience
-                  </span>
-                  . Seamless Air Cargo (RGIA), Ocean Container Shipping (ICD Sanathnagar), Custom Clearance & Worldwide Courier.
+                <p className="text-base sm:text-lg text-white/75 max-w-xl leading-relaxed">
+                  Headquartered in Begumpet, Hyderabad, with{' '}
+                  <strong className="font-bold text-orange-300">28+ years of proven logistics experience</strong>.
+                  Seamless Air Cargo (RGIA), Ocean Container Shipping (ICD Sanathnagar), Customs Clearance & Worldwide Courier.
                 </p>
 
                 {/* Primary Hero Actions */}
-                <div className="flex flex-wrap items-center gap-4 pt-1">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
                   <a
                     href="#quote"
                     className="glass-btn-orange px-6 sm:px-7 py-3.5 text-white font-bold rounded-xl transition flex items-center gap-2 text-sm tracking-wide"
@@ -117,7 +114,7 @@ export default function App() {
                 </div>
 
                 {/* Quick Stats in Hero */}
-                <div className="pt-6 border-t border-white/10 grid grid-cols-3 gap-3 sm:gap-5 text-xs">
+                <div className="pt-6 border-t border-white/10 grid grid-cols-3 gap-2.5 sm:gap-4 text-xs max-w-xl">
                   <div className="bg-gradient-to-br from-orange-500/15 via-orange-500/5 to-transparent p-3 rounded-2xl border border-orange-500/25">
                     <span className="text-xl sm:text-2xl font-black text-orange-400 font-mono block"><CountUp to={28} suffix="+ Yrs" /></span>
                     <span className="text-white font-bold text-[11px] block">Freight Experience</span>
@@ -160,14 +157,14 @@ export default function App() {
                       <small className="text-[10px] text-white/50 block font-medium">Rajiv Gandhi Int’l</small>
                     </div>
 
-                    <div className="flex flex-col items-center px-1">
+                    <div className="flex flex-col items-center px-1 pt-3">
                       <div className="w-full relative flex items-center justify-center">
                         <div className="w-full border-t border-dashed border-white/20" />
                         <div className="absolute px-2 py-0.5 bg-[#0e2c47] border border-orange-500/40 rounded-full text-orange-400 text-xs shadow-md shadow-orange-500/20 transform group-hover:translate-x-1.5 transition-transform duration-300">
                           ✈
                         </div>
                       </div>
-                      <span className="text-[9px] font-mono font-bold text-orange-400/90 mt-1.5 uppercase tracking-wider">
+                      <span className="text-[9px] font-mono font-bold text-orange-400/90 mt-4 uppercase tracking-wider whitespace-nowrap">
                         Air Express
                       </span>
                     </div>
@@ -213,9 +210,9 @@ export default function App() {
         {/* ================= TRUST STRIP ================= */}
         <section id="trust" className="trust-glass py-6">
           <div className="shell">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center text-center sm:text-left">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-5 gap-y-6 items-center text-left">
               <div className="bg-orange-500/15 -my-2 py-2 px-3 rounded-xl border border-orange-400/30">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-600 block">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-400 block">
                   EXPERIENCE
                 </span>
                 <b className="text-sm font-extrabold text-white">28+ Years Experience</b>
@@ -223,7 +220,7 @@ export default function App() {
               </div>
 
               <div>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-600 block">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-400 block">
                   AIR CARGO
                 </span>
                 <b className="text-sm font-extrabold text-white">RGIA Airside Hub</b>
@@ -231,7 +228,7 @@ export default function App() {
               </div>
 
               <div>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-600 block">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-400 block">
                   OCEAN FREIGHT
                 </span>
                 <b className="text-sm font-extrabold text-white">ICD Sanathnagar</b>
@@ -239,7 +236,7 @@ export default function App() {
               </div>
 
               <div>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-600 block">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-400 block">
                   COMPLIANCE
                 </span>
                 <b className="text-sm font-extrabold text-white">Accredited CHA</b>
@@ -247,7 +244,7 @@ export default function App() {
               </div>
 
               <div>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-600 block">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-400 block">
                   WORLDWIDE COURIER
                 </span>
                 <b className="text-sm font-extrabold text-white">Australia & USA</b>
@@ -255,7 +252,7 @@ export default function App() {
               </div>
 
               <div>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-600 block">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-orange-400 block">
                   RATING
                 </span>
                 <b className="text-sm font-extrabold text-white">5.0 / 5.0 Stars</b>
@@ -658,7 +655,7 @@ export default function App() {
               </p>
             </div>
 
-            <Reveal><div className="glass-card glass-flat rounded-3xl p-2 sm:p-4"><QuoteForm /></div></Reveal>
+            <Reveal><QuoteForm /></Reveal>
           </div>
         </section>
       </main>

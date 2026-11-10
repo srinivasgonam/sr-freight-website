@@ -336,7 +336,7 @@ export default function ContactPage() {
                   href={`https://wa.me/919391032794?text=Hello%20SR%20Freight%20Begumpet,%20I%20have%20an%20urgent%20shipment%20inquiry`}
                   target="_blank"
                   rel="noreferrer"
-                  className="glass-btn-emerald w-full py-3 text-white font-bold rounded-xl text-xs gap-2 block text-center"
+                  className="glass-btn-emerald w-full py-3 text-white font-bold rounded-xl text-xs gap-2 flex items-center justify-center"
                 >
                   <MessageCircle size={15} /> <span>Chat on WhatsApp (+91 93910 32794)</span>
                 </a>

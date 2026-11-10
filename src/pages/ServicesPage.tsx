@@ -164,7 +164,7 @@ export default function ServicesPage() {
                     </p>
                     <a
                       href={`tel:${COMPANY.phoneRaw}`}
-                      className="glass-btn-orange w-full py-3 text-white font-bold rounded-xl text-xs gap-2 block text-center"
+                      className="glass-btn-orange w-full py-3 text-white font-bold rounded-xl text-xs gap-2 flex items-center justify-center"
                     >
                       <Phone size={14} /> <span>Call {COMPANY.phone}</span>
                     </a>

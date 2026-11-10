@@ -84,7 +84,7 @@ export default function BrandLogo({
           </div>
 
           {showTagline && (
-            <div className="flex items-center gap-2 mt-1.5">
+            <div className="hidden min-[360px]:flex items-center gap-2 mt-1.5">
               <span className="h-px w-5 bg-gradient-to-r from-orange-500 to-transparent" />
               <span className="text-[9px] font-semibold tracking-[0.28em] text-white/55 uppercase">
                 Global Logistics
