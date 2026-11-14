@@ -1,14 +1,15 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="6" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse"><stop stop-color="#1b4a73"/><stop offset=".55" stop-color="#0c2338"/><stop offset="1" stop-color="#06121f"/></linearGradient>
-    <linearGradient id="or" x1="10" y1="0" x2="58" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#ffb36b"/><stop offset=".5" stop-color="#ff6a1f"/><stop offset="1" stop-color="#f05a28"/></linearGradient>
+    <linearGradient id="bg" x1="8" y1="2" x2="56" y2="62" gradientUnits="userSpaceOnUse"><stop stop-color="#1a4670"/><stop offset=".55" stop-color="#0b2135"/><stop offset="1" stop-color="#050f1b"/></linearGradient>
+    <linearGradient id="or" x1="16" y1="32" x2="52" y2="10" gradientUnits="userSpaceOnUse"><stop stop-color="#f0541e"/><stop offset=".55" stop-color="#ff7d40"/><stop offset="1" stop-color="#ffc08f"/></linearGradient>
+    <linearGradient id="wh" x1="48" y1="32" x2="12" y2="54" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#c9dcf0"/></linearGradient>
   </defs>
-  <rect x="2" y="2" width="60" height="60" rx="17" fill="url(#bg)"/>
-  <rect x="2.5" y="2.5" width="59" height="59" rx="16.5" stroke="#fff" stroke-opacity=".3"/>
-  <g transform="translate(0 3)" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M30 22H19a6.5 6.5 0 0 0 0 13h7a6.5 6.5 0 0 1 0 13H12" stroke="#fff" stroke-width="5"/>
-    <path d="M37 48V22h9a6.5 6.5 0 0 1 0 13h-9M45 35l8 13" stroke="#fff" stroke-width="5"/>
-    <path d="M11 13h40" stroke="url(#or)" stroke-width="4"/>
-    <path d="M45 7l10 6-10 6Z" fill="url(#or)" stroke="url(#or)" stroke-width="2"/>
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#bg)"/>
+  <rect x="2.5" y="2.5" width="59" height="59" rx="17.5" stroke="#fff" stroke-opacity=".22"/>
+  <g stroke-linecap="round" stroke-linejoin="round" stroke-width="6.5">
+    <path d="M32 32h7a8 8 0 0 1 0 16H25" stroke="url(#wh)"/>
+    <path d="M24 42.5 15.5 48 24 53.5Z" fill="url(#wh)" stroke="url(#wh)" stroke-width="3"/>
+    <path d="M32 32h-7a8 8 0 0 1 0-16h14" stroke="url(#or)"/>
+    <path d="M40 10.5 48.5 16 40 21.5Z" fill="url(#or)" stroke="url(#or)" stroke-width="3"/>
   </g>
 </svg>
