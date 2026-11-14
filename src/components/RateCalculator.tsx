@@ -108,11 +108,11 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
   return (
     <div className="w-full max-w-4xl mx-auto bg-[#081829] border border-white/15 rounded-3xl p-6 sm:p-9 shadow-2xl backdrop-blur-xl">
       <div className="text-center max-w-xl mx-auto mb-8">
-        <span className="text-[11px] font-bold uppercase tracking-widest text-orange-400 mb-2 inline-flex items-center gap-1.5">
+        <span className="text-[12px] font-bold uppercase tracking-widest text-orange-400 mb-2 inline-flex items-center gap-1.5">
           <Calculator size={13} /> Transparent International Tariff
         </span>
         <h3 className="text-2xl sm:text-3xl font-extrabold text-white">Instant Freight Rate Estimator</h3>
-        <p className="text-xs sm:text-sm text-white/60 mt-2">
+        <p className="text-xs sm:text-sm text-ink-3 mt-2">
           Calculate estimated charges from Hyderabad to global trade destinations with volumetric weight and fuel index.
         </p>
       </div>
@@ -183,7 +183,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
       {/* Form Fields Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-2">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-2">
             Origin Point (Hyderabad Hub)
           </label>
           <input
@@ -195,7 +195,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-2">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-2">
             Destination City / Port
           </label>
           <input
@@ -211,7 +211,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
                 key={d}
                 type="button"
                 onClick={() => setDestination(d)}
-                className={`text-[10px] px-2.5 py-1 rounded-lg transition ${
+                className={`text-[11px] px-2.5 py-1 rounded-lg transition ${
                   destination === d ? 'glass-chip-active font-bold' : 'glass-chip'
                 }`}
               >
@@ -226,7 +226,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
       {mode !== 'ocean_fcl' ? (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
           <div>
-            <label className="block text-[11px] font-bold text-white/70 uppercase tracking-wider mb-1.5">
+            <label className="block text-[12px] font-bold text-ink-2 uppercase tracking-wider mb-1.5">
               Weight (KG)
             </label>
             <input
@@ -240,7 +240,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
           </div>
 
           <div>
-            <label className="block text-[11px] font-bold text-white/70 uppercase tracking-wider mb-1.5">
+            <label className="block text-[12px] font-bold text-ink-2 uppercase tracking-wider mb-1.5">
               Length (CM)
             </label>
             <input
@@ -253,7 +253,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
           </div>
 
           <div>
-            <label className="block text-[11px] font-bold text-white/70 uppercase tracking-wider mb-1.5">
+            <label className="block text-[12px] font-bold text-ink-2 uppercase tracking-wider mb-1.5">
               Width (CM)
             </label>
             <input
@@ -266,7 +266,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
           </div>
 
           <div>
-            <label className="block text-[11px] font-bold text-white/70 uppercase tracking-wider mb-1.5">
+            <label className="block text-[12px] font-bold text-ink-2 uppercase tracking-wider mb-1.5">
               Height (CM)
             </label>
             <input
@@ -281,7 +281,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           <div>
-            <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
               Container Specification
             </label>
             <select
@@ -295,7 +295,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
             </select>
           </div>
           <div>
-            <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
               Payload Gross Weight (KG)
             </label>
             <input
@@ -311,7 +311,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
 
       {/* Commodity Type */}
       <div className="mb-8">
-        <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-2">
+        <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-2">
           Cargo Commodity Profile
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs">
@@ -358,7 +358,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
         <div className="mt-8 p-6 bg-[#040e18] border border-orange-500/30 rounded-2xl animate-in fade-in slide-in-from-top-3 duration-300">
           <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
             <div>
-              <span className="text-[10px] font-mono text-orange-400 font-bold uppercase tracking-widest block">
+              <span className="text-[11px] font-display text-orange-400 font-bold uppercase tracking-widest block">
                 INDICATIVE TARIFF QUOTE
               </span>
               <h4 className="text-xl font-black text-white mt-0.5">
@@ -369,7 +369,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
               <span className="text-2xl font-black text-emerald-400">
                 ₹{estimate.totalEstimateInr.toLocaleString('en-IN')}
               </span>
-              <span className="text-xs text-white/60 block font-mono">
+              <span className="text-xs text-ink-3 block font-mono">
                 (~${estimate.totalEstimateUsd.toLocaleString()} USD)
               </span>
             </div>
@@ -377,43 +377,43 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-b border-white/10 text-xs">
             <div>
-              <span className="text-white/40 block">Chargeable Weight</span>
+              <span className="text-ink-4 block">Chargeable Weight</span>
               <span className="text-white font-bold">{estimate.chargeableWeightKg} KG</span>
             </div>
             <div>
-              <span className="text-white/40 block">Volumetric Weight</span>
+              <span className="text-ink-4 block">Volumetric Weight</span>
               <span className="text-white font-bold">{estimate.volumetricWeightKg} KG</span>
             </div>
             <div>
-              <span className="text-white/40 block">Estimated Transit</span>
+              <span className="text-ink-4 block">Estimated Transit</span>
               <span className="text-amber-300 font-bold">{estimate.estimatedDays}</span>
             </div>
             <div>
-              <span className="text-white/40 block">Lane Route</span>
+              <span className="text-ink-4 block">Lane Route</span>
               <span className="text-white font-bold capitalize">{estimate.laneZone}</span>
             </div>
           </div>
 
           {/* Breakdown Items */}
           <div className="py-4 space-y-2 text-xs">
-            <div className="flex justify-between text-white/70">
+            <div className="flex justify-between text-ink-2">
               <span>Base Freight Charges:</span>
               <span className="text-white font-medium">₹{estimate.breakdown.freightCharges.toLocaleString('en-IN')}</span>
             </div>
-            <div className="flex justify-between text-white/70">
+            <div className="flex justify-between text-ink-2">
               <span>Fuel & Security Surcharges:</span>
               <span className="text-white font-medium">₹{estimate.breakdown.fuelSurcharge.toLocaleString('en-IN')}</span>
             </div>
-            <div className="flex justify-between text-white/70">
+            <div className="flex justify-between text-ink-2">
               <span>Customs Documentation (Begumpet / RGIA):</span>
               <span className="text-white font-medium">₹{estimate.breakdown.customsDocumentation.toLocaleString('en-IN')}</span>
             </div>
-            <div className="flex justify-between text-white/70">
+            <div className="flex justify-between text-ink-2">
               <span>Terminal Handling Charges (THC):</span>
               <span className="text-white font-medium">₹{estimate.breakdown.terminalHandling.toLocaleString('en-IN')}</span>
             </div>
             {estimate.breakdown.commodityNotes && (
-              <div className="mt-3 p-3 bg-white/5 rounded-lg border border-white/10 text-[11px] text-amber-300/90 flex items-start gap-2">
+              <div className="mt-3 p-3 bg-white/5 rounded-lg border border-white/10 text-[12px] text-amber-300/90 flex items-start gap-2">
                 <Info size={14} className="shrink-0 mt-0.5" />
                 <span>{estimate.breakdown.commodityNotes}</span>
               </div>
@@ -422,7 +422,7 @@ export default function RateCalculator({ onApplyToQuote }: RateCalculatorProps) 
 
           {/* Conversion CTA */}
           <div className="mt-4 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span className="text-[11px] text-white/50">{estimate.disclaimer}</span>
+            <span className="text-[12px] text-ink-4">{estimate.disclaimer}</span>
             <button
               type="button"
               onClick={handleBookWithDetails}

@@ -131,8 +131,8 @@ export default function ShipmentTracker({ initialTrackingId = '', compact = fals
       </form>
 
       {/* Quick sample chips */}
-      <div className="flex flex-wrap items-center gap-2 mt-3 text-xs text-white/60">
-        <span className="font-medium text-white/40">Try sample shipments:</span>
+      <div className="flex flex-wrap items-center gap-2 mt-3 text-xs text-ink-3">
+        <span className="font-medium text-ink-4">Try sample shipments:</span>
         {sampleIds.map((item) => (
           <button
             key={item.id}
@@ -175,11 +175,11 @@ export default function ShipmentTracker({ initialTrackingId = '', compact = fals
                 <span className="text-xs font-mono font-bold text-orange-400 tracking-wider">
                   WAYBILL / TRACKING NO:
                 </span>
-                <span className="text-lg font-mono font-black text-white bg-white/10 px-2.5 py-0.5 rounded">
+                <span className="text-lg font-display font-black text-white bg-white/10 px-2.5 py-0.5 rounded">
                   {shipment.tracking_number}
                 </span>
               </div>
-              <p className="text-xs text-white/60">
+              <p className="text-xs text-ink-3">
                 Consignee: <span className="text-white font-medium">{shipment.customer_name}</span> • Service:{' '}
                 <span className="text-white font-medium">{shipment.service_mode}</span>
               </p>
@@ -208,7 +208,7 @@ export default function ShipmentTracker({ initialTrackingId = '', compact = fals
           {/* Route Overview */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6 p-5 bg-[#061422] rounded-xl border border-white/10">
             <div>
-              <span className="text-[10px] text-white/40 uppercase tracking-widest block font-bold mb-1">
+              <span className="text-[11px] text-ink-4 uppercase tracking-widest block font-bold mb-1">
                 ORIGIN (DISPATCHED)
               </span>
               <p className="text-sm font-bold text-white flex items-center gap-1.5">
@@ -226,11 +226,11 @@ export default function ShipmentTracker({ initialTrackingId = '', compact = fals
                 )}
                 <span>{shipment.flight_vessel}</span>
               </div>
-              <span className="text-[11px] text-white/50">{shipment.carrier}</span>
+              <span className="text-[12px] text-ink-4">{shipment.carrier}</span>
             </div>
 
             <div className="text-left md:text-right">
-              <span className="text-[10px] text-white/40 uppercase tracking-widest block font-bold mb-1">
+              <span className="text-[11px] text-ink-4 uppercase tracking-widest block font-bold mb-1">
                 DESTINATION / ETA
               </span>
               <p className="text-sm font-bold text-white flex items-center justify-start md:justify-end gap-1.5">
@@ -244,19 +244,19 @@ export default function ShipmentTracker({ initialTrackingId = '', compact = fals
           {/* Cargo Specs */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 text-xs bg-white/5 p-4 rounded-xl border border-white/5">
             <div>
-              <span className="text-white/40 block mb-1">Gross Weight</span>
+              <span className="text-ink-4 block mb-1">Gross Weight</span>
               <span className="text-white font-bold text-sm">{shipment.weight_kg} KG</span>
             </div>
             <div>
-              <span className="text-white/40 block mb-1">Packages</span>
+              <span className="text-ink-4 block mb-1">Packages</span>
               <span className="text-white font-bold text-sm">{shipment.packages_count} Units</span>
             </div>
             <div>
-              <span className="text-white/40 block mb-1">Current Location</span>
+              <span className="text-ink-4 block mb-1">Current Location</span>
               <span className="text-emerald-300 font-bold text-xs truncate block">{shipment.current_location}</span>
             </div>
             <div>
-              <span className="text-white/40 block mb-1">Est. Delivery</span>
+              <span className="text-ink-4 block mb-1">Est. Delivery</span>
               <span className="text-white font-bold text-xs">{shipment.estimated_delivery}</span>
             </div>
           </div>
@@ -284,12 +284,12 @@ export default function ShipmentTracker({ initialTrackingId = '', compact = fals
                   <div className="bg-white/5 hover:bg-white/10 p-4 rounded-xl border border-white/10 transition">
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
                       <span className="text-sm font-bold text-white">{cp.title}</span>
-                      <span className="text-[11px] font-mono text-white/50">{cp.timestamp}</span>
+                      <span className="text-[12px] font-mono text-ink-4">{cp.timestamp}</span>
                     </div>
                     <p className="text-xs text-orange-400/90 font-medium mb-1.5 flex items-center gap-1">
                       <MapPin size={11} /> {cp.location}
                     </p>
-                    {cp.description && <p className="text-xs text-white/70 leading-relaxed">{cp.description}</p>}
+                    {cp.description && <p className="text-sm text-ink-2 leading-relaxed">{cp.description}</p>}
                   </div>
                 </div>
               ))}
@@ -297,7 +297,7 @@ export default function ShipmentTracker({ initialTrackingId = '', compact = fals
           </div>
 
           {/* Support Strip */}
-          <div className="mt-8 pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs text-white/60">
+          <div className="mt-8 pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs text-ink-3">
             <span>Need modification or custom clearance paperwork?</span>
             <a
               href="https://wa.me/919391032794?text=Hi%20SR%20Freight,%20inquiring%20about%20tracking%20AWB%20"

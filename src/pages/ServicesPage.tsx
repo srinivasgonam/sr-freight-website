@@ -43,13 +43,13 @@ export default function ServicesPage() {
         <div className="shell space-y-16">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-orange-400 mb-2 inline-block">
+            <span className="eyebrow mb-3">
               {currentService ? 'GLOBAL LOGISTICS CAPABILITY' : 'COMPREHENSIVE LOGISTICS SOLUTIONS'}
             </span>
             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight">
               {currentService ? currentService.title : 'End-to-End International Freight Services'}
             </h1>
-            <p className="text-sm md:text-base text-white/60 mt-3 leading-relaxed">
+            <p className="text-sm md:text-base text-ink-3 mt-3 leading-relaxed">
               {currentService
                 ? currentService.shortDesc
                 : 'Connecting Hyderabad businesses to 220+ international destinations through RGIA Air Cargo Terminal, ICD Sanathnagar, and global partner alliances.'}
@@ -62,7 +62,7 @@ export default function ServicesPage() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Left 2 Cols: Service Specs */}
                 <div className="lg:col-span-2 space-y-8">
-                  <div className="bg-[#071726] border border-white/10 rounded-3xl p-6 sm:p-9 shadow-xl">
+                  <div className="surface rounded-3xl p-6 sm:p-9 shadow-xl">
                     <div className="flex flex-wrap items-center gap-2 mb-6">
                       {currentService.badges.map((b) => (
                         <span
@@ -81,7 +81,7 @@ export default function ServicesPage() {
                       Operational Highlights & Infrastructure
                     </h3>
 
-                    <ul className="space-y-4 text-xs sm:text-sm text-white/80">
+                    <ul className="space-y-4 text-xs sm:text-sm text-ink-2">
                       {currentService.features.map((feat, idx) => (
                         <li key={idx} className="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/5">
                           <CheckCircle2 size={18} className="text-emerald-400 shrink-0 mt-0.5" />
@@ -92,37 +92,37 @@ export default function ServicesPage() {
 
                     <div className="mt-8 p-4 bg-orange-500/10 border border-orange-500/20 rounded-xl text-xs text-orange-200">
                       <b className="font-bold block mb-1">Recommended Cargo Fit:</b>
-                      <p className="text-white/80">{currentService.idealFor}</p>
+                      <p className="text-ink-2">{currentService.idealFor}</p>
                     </div>
                   </div>
 
                   {/* Industry Specialization */}
-                  <div className="bg-[#071726] border border-white/10 rounded-3xl p-6 sm:p-9 shadow-xl space-y-4">
+                  <div className="surface rounded-3xl p-6 sm:p-9 shadow-xl space-y-4">
                     <h3 className="text-lg sm:text-xl font-black text-white">
                       Tailored for Hyderabad’s Key Export Industries
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                       <div className="p-4 bg-white/5 rounded-xl border border-white/10">
                         <b className="text-orange-400 block mb-1 font-bold">Pharmaceuticals & Biotech</b>
-                        <p className="text-white/70">
+                        <p className="text-ink-2">
                           Active pharmaceutical ingredients (API) and temperature-monitored formulations out of Genome Valley and Bollaram to USA, EU, and Latin America.
                         </p>
                       </div>
                       <div className="p-4 bg-white/5 rounded-xl border border-white/10">
                         <b className="text-orange-400 block mb-1 font-bold">Aerospace & Precision Engineering</b>
-                        <p className="text-white/70">
+                        <p className="text-ink-2">
                           Custom wooden crating and expedited air charter for Adibatla aerospace corridor and Sanathnagar manufacturing units.
                         </p>
                       </div>
                       <div className="p-4 bg-white/5 rounded-xl border border-white/10">
                         <b className="text-orange-400 block mb-1 font-bold">Australia & USA Courier</b>
-                        <p className="text-white/70">
+                        <p className="text-ink-2">
                           Fast personal parcel delivery, traditional home food items, university documents, and prescribed medicines with prescription verification.
                         </p>
                       </div>
                       <div className="p-4 bg-white/5 rounded-xl border border-white/10">
                         <b className="text-orange-400 block mb-1 font-bold">Agro & Commodity Bulk Shipments</b>
-                        <p className="text-white/70">
+                        <p className="text-ink-2">
                           Full container load (FCL) turmeric, spices, and agricultural goods directly railed from ICD Sanathnagar to Nhava Sheva and Chennai Port.
                         </p>
                       </div>
@@ -132,7 +132,7 @@ export default function ServicesPage() {
 
                 {/* Right Column: Instant Booking & Other Services */}
                 <div className="space-y-6">
-                  <div className="bg-[#071726] border border-white/10 rounded-3xl p-6 shadow-xl">
+                  <div className="surface rounded-3xl p-6 shadow-xl">
                     <h4 className="font-bold text-sm text-white uppercase tracking-wider mb-4">
                       All Freight Capabilities
                     </h4>
@@ -144,7 +144,7 @@ export default function ServicesPage() {
                           className={`flex items-center justify-between p-3 rounded-xl border transition ${
                             srv.slug === currentService.slug
                               ? 'bg-orange-600/20 border-orange-500 text-white font-bold'
-                              : 'bg-white/5 border-white/5 text-white/70 hover:text-white hover:bg-white/10'
+                              : 'bg-white/5 border-white/5 text-ink-2 hover:text-white hover:bg-white/10'
                           }`}
                         >
                           <span className="truncate">{srv.title}</span>
@@ -155,11 +155,11 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="p-6 bg-gradient-to-br from-[#0c2338] to-[#071726] border border-white/10 rounded-3xl space-y-3">
-                    <span className="text-[10px] uppercase font-bold text-emerald-400 tracking-wider">
+                    <span className="text-[11px] uppercase font-bold text-emerald-400 tracking-wider">
                       DIRECT ASSISTANCE
                     </span>
                     <h4 className="font-bold text-base text-white">Begumpet Cargo Desk</h4>
-                    <p className="text-xs text-white/60">
+                    <p className="text-xs text-ink-3">
                       Need custom quotes or immediate airline space allotment? Talk directly with our senior Begumpet freight desk (28+ years experience).
                     </p>
                     <a
@@ -178,7 +178,7 @@ export default function ServicesPage() {
                   <h3 className="text-2xl font-black text-white">
                     Request a Tariff Quote for {currentService.title}
                   </h3>
-                  <p className="text-xs text-white/60 mt-1">
+                  <p className="text-xs text-ink-3 mt-1">
                     Fill in your consignment origin, destination, and weight for an immediate response.
                   </p>
                 </div>
@@ -201,19 +201,19 @@ export default function ServicesPage() {
                           <div className="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-400 group-hover:bg-orange-500 group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-md">
                             <Icon size={24} />
                           </div>
-                          <span className="font-mono text-xs text-white/40 font-bold">0{idx + 1}</span>
+                          <span className="font-mono text-xs text-ink-4 font-bold">0{idx + 1}</span>
                         </div>
 
                         <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition">
                           {srv.title}
                         </h3>
-                        <p className="text-xs text-white/60 leading-relaxed mb-5">{srv.shortDesc}</p>
+                        <p className="text-sm text-ink-3 leading-relaxed mb-5">{srv.shortDesc}</p>
 
                         <div className="flex flex-wrap gap-1.5 mb-6">
                           {srv.badges.map((b) => (
                             <span
                               key={b}
-                              className="text-[10px] px-2.5 py-1 bg-white/5 rounded-md text-white/70 font-semibold border border-white/5"
+                              className="text-[11px] px-2.5 py-1 bg-white/5 rounded-md text-ink-2 font-semibold border border-white/5"
                             >
                               {b}
                             </span>
@@ -222,7 +222,7 @@ export default function ServicesPage() {
                       </div>
 
                       <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                        <span className="text-[11px] text-amber-300/80 font-medium flex items-center gap-1">
+                        <span className="text-[12px] text-amber-300/80 font-medium flex items-center gap-1">
                           <Clock size={11} /> {srv.transitTime}
                         </span>
                         <Link
@@ -238,15 +238,15 @@ export default function ServicesPage() {
               </div>
 
               {/* Trade Hub Connections */}
-              <div className="bg-[#071726] border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl">
+              <div className="surface rounded-3xl p-8 sm:p-10 shadow-2xl">
                 <div className="max-w-2xl mb-8">
-                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-orange-400 block mb-1">
+                  <span className="eyebrow mb-3">
                     HYDERABAD GATEWAY NETWORK
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white">
                     Direct Infrastructure Links Across Telangana
                   </h3>
-                  <p className="text-xs sm:text-sm text-white/60 mt-2">
+                  <p className="text-xs sm:text-sm text-ink-3 mt-2">
                     Our Begumpet operations desk coordinates real-time cargo movement through all primary commercial infrastructure nodes in the region.
                   </p>
                 </div>
@@ -254,12 +254,12 @@ export default function ServicesPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 text-xs">
                   {COMPANY.keyHubs.map((hub, idx) => (
                     <div key={idx} className="p-4 bg-white/5 rounded-2xl border border-white/5">
-                      <span className="text-orange-400 font-mono font-bold block mb-1 text-[11px]">
+                      <span className="text-orange-400 font-mono font-bold block mb-1 text-[12px]">
                         HUB 0{idx + 1}
                       </span>
                       <b className="text-white text-sm block mb-1 font-bold">{hub.name}</b>
-                      <p className="text-white/60 text-[11px] flex items-start gap-1">
-                        <MapPin size={12} className="shrink-0 mt-0.5 text-white/40" />
+                      <p className="text-ink-3 text-[12px] flex items-start gap-1">
+                        <MapPin size={12} className="shrink-0 mt-0.5 text-ink-4" />
                         {hub.location}
                       </p>
                     </div>
@@ -270,11 +270,11 @@ export default function ServicesPage() {
               {/* General Quote Request Form */}
               <div className="pt-4">
                 <div className="text-center max-w-xl mx-auto mb-8">
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-400 block mb-1">
+                  <span className="text-[11px] uppercase font-bold tracking-widest text-orange-400 block mb-1">
                     CONNECT WITH OUR LOGISTICS SPECIALIST
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white">Get a Custom Shipping Quote</h3>
-                  <p className="text-xs text-white/60 mt-2">
+                  <p className="text-xs text-ink-3 mt-2">
                     Fast response, transparent billing, and personalized service from our Hyderabad team.
                   </p>
                 </div>

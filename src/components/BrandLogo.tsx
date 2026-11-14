@@ -74,7 +74,7 @@ export default function BrandLogo({
 
       {!iconOnly && (
         <div className="flex flex-col justify-center">
-          <div className="flex items-baseline gap-1.5 leading-none" style={{ fontFamily: "'Manrope', sans-serif" }}>
+          <div className="flex items-baseline gap-1.5 leading-none" style={{ fontFamily: 'var(--font-display)' }}>
             <span className={`font-extrabold text-white tracking-tight ${titleSizes}`}>SR</span>
             <span
               className={`font-extrabold tracking-[0.14em] bg-gradient-to-r from-[#ffb36b] via-[#ff6a1f] to-[#f05a28] bg-clip-text text-transparent ${titleSizes}`}
@@ -86,7 +86,7 @@ export default function BrandLogo({
           {showTagline && (
             <div className="hidden min-[360px]:flex items-center gap-2 mt-1.5">
               <span className="h-px w-5 bg-gradient-to-r from-orange-500 to-transparent" />
-              <span className="text-[9px] font-semibold tracking-[0.28em] text-white/55 uppercase">
+              <span className="text-[10px] font-semibold tracking-[0.28em] text-ink-3 uppercase">
                 Global Logistics
               </span>
             </div>

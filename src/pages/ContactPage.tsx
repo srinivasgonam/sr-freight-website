@@ -64,25 +64,25 @@ export default function ContactPage() {
         <div className="shell space-y-16">
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-orange-400 mb-2 inline-block">
+            <span className="eyebrow mb-3">
               BEGUMPET HEADQUARTERS & GLOBAL NETWORK
             </span>
             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight">
               Contact S R Freight
             </h1>
-            <p className="text-sm md:text-base text-white/60 mt-3 leading-relaxed">
+            <p className="text-sm md:text-base text-ink-3 mt-3 leading-relaxed">
               Visit our Begumpet office or get in touch for instant cargo tariffs, customs guidance, and pickup requests across Hyderabad.
             </p>
           </div>
 
           {/* Contact Details Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 bg-[#071726] border border-white/10 rounded-3xl space-y-3">
+            <div className="p-6 surface rounded-3xl space-y-3">
               <div className="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-400 flex items-center justify-center">
                 <MapPin size={22} />
               </div>
               <h4 className="font-bold text-base text-white">Office Location</h4>
-              <p className="text-xs text-white/60 leading-relaxed">
+              <p className="text-sm text-ink-3 leading-relaxed">
                 Flat No. 43 / F-55, 2nd Floor, Bharani Complex, Near KIMS Hospital, Minister Road, Begumpet, Hyderabad — 500003
               </p>
               <a
@@ -95,7 +95,7 @@ export default function ContactPage() {
               </a>
             </div>
 
-            <div className="p-6 bg-[#071726] border border-white/10 rounded-3xl space-y-3">
+            <div className="p-6 surface rounded-3xl space-y-3">
               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
                 <Phone size={22} />
               </div>
@@ -107,12 +107,12 @@ export default function ContactPage() {
                 >
                   Mobile: {COMPANY.phone}
                 </a>
-                <span className="block text-white/60">Office: {COMPANY.landline}</span>
-                <span className="block text-emerald-400 font-semibold text-[11px]">Direct Operations Desk</span>
+                <span className="block text-ink-3">Office: {COMPANY.landline}</span>
+                <span className="block text-emerald-400 font-semibold text-[12px]">Direct Operations Desk</span>
               </div>
             </div>
 
-            <div className="p-6 bg-[#071726] border border-white/10 rounded-3xl space-y-3">
+            <div className="p-6 surface rounded-3xl space-y-3">
               <div className="w-12 h-12 rounded-2xl bg-sky-500/10 text-sky-400 flex items-center justify-center">
                 <Mail size={22} />
               </div>
@@ -124,20 +124,20 @@ export default function ContactPage() {
                 >
                   {COMPANY.email}
                 </a>
-                <span className="block text-white/60">ops@srfreight.in</span>
-                <span className="block text-white/40 text-[11px]">Response within 2 business hours</span>
+                <span className="block text-ink-3">ops@srfreight.in</span>
+                <span className="block text-ink-4 text-[12px]">Response within 2 business hours</span>
               </div>
             </div>
 
-            <div className="p-6 bg-[#071726] border border-white/10 rounded-3xl space-y-3">
+            <div className="p-6 surface rounded-3xl space-y-3">
               <div className="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
                 <Clock size={22} />
               </div>
               <h4 className="font-bold text-base text-white">Working Hours</h4>
-              <div className="space-y-1 text-xs text-white/70">
+              <div className="space-y-1 text-xs text-ink-2">
                 <span className="block font-bold text-white">{COMPANY.workingHours.weekdays}</span>
-                <span className="block text-white/60">Sunday: On-Duty Dispatch</span>
-                <span className="block text-emerald-400 font-medium text-[11px]">24/7 Live Air Freight Monitoring</span>
+                <span className="block text-ink-3">Sunday: On-Duty Dispatch</span>
+                <span className="block text-emerald-400 font-medium text-[12px]">24/7 Live Air Freight Monitoring</span>
               </div>
             </div>
           </div>
@@ -176,7 +176,7 @@ export default function ContactPage() {
               ) : (
                 <form
                   onSubmit={handleMessageSubmit}
-                  className="bg-[#071726] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl"
+                  className="surface rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl"
                 >
                   <h3 className="text-xl font-bold text-white mb-2">Send a Message to Begumpet Desk</h3>
 
@@ -184,7 +184,7 @@ export default function ContactPage() {
                     <div className="p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-center space-y-3">
                       <CheckCircle2 size={36} className="text-emerald-400 mx-auto" />
                       <h4 className="text-lg font-bold text-white">Message Sent Successfully!</h4>
-                      <p className="text-xs text-white/70">
+                      <p className="text-xs text-ink-2">
                         Thank you for reaching out to S R Freight. Our operations team will respond to you shortly.
                       </p>
                       <button
@@ -205,7 +205,7 @@ export default function ContactPage() {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-white/70 mb-1">Your Name *</label>
+                          <label className="block text-xs font-bold text-ink-2 mb-1">Your Name *</label>
                           <input
                             required
                             type="text"
@@ -217,7 +217,7 @@ export default function ContactPage() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold text-white/70 mb-1">Email Address *</label>
+                          <label className="block text-xs font-bold text-ink-2 mb-1">Email Address *</label>
                           <input
                             required
                             type="email"
@@ -231,7 +231,7 @@ export default function ContactPage() {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-white/70 mb-1">Phone Number</label>
+                          <label className="block text-xs font-bold text-ink-2 mb-1">Phone Number</label>
                           <input
                             type="tel"
                             value={msgData.phone}
@@ -242,7 +242,7 @@ export default function ContactPage() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold text-white/70 mb-1">Subject</label>
+                          <label className="block text-xs font-bold text-ink-2 mb-1">Subject</label>
                           <input
                             type="text"
                             value={msgData.subject}
@@ -254,7 +254,7 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-white/70 mb-1">Message *</label>
+                        <label className="block text-xs font-bold text-ink-2 mb-1">Message *</label>
                         <textarea
                           required
                           rows={4}
@@ -286,7 +286,7 @@ export default function ContactPage() {
             {/* Right 5 cols: Interactive Map & WhatsApp card */}
             <div className="lg:col-span-5 space-y-6">
               {/* Google Map Embed */}
-              <div className="bg-[#071726] border border-white/10 rounded-3xl p-6 shadow-xl overflow-hidden space-y-4">
+              <div className="surface rounded-3xl p-6 shadow-xl overflow-hidden space-y-4">
                 <div className="flex items-center justify-between">
                   <h4 className="font-bold text-sm text-white flex items-center gap-2">
                     <MapPin size={16} className="text-orange-400" />
@@ -296,7 +296,7 @@ export default function ContactPage() {
                     href={COMPANY.address.googleMapsUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[11px] text-orange-400 hover:text-orange-300 font-bold flex items-center gap-1"
+                    className="text-[12px] text-orange-400 hover:text-orange-300 font-bold flex items-center gap-1"
                   >
                     Open App <ExternalLink size={12} />
                   </a>
@@ -315,7 +315,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <div className="text-xs text-white/60 space-y-1">
+                <div className="text-xs text-ink-3 space-y-1">
                   <b className="text-white block">Landmark Directions:</b>
                   <p>
                     Located directly on Minister Road, approximately 250 meters from KIMS Hospital, Begumpet, and opposite Passport Seva Kendra. Ample visitor parking available.
@@ -325,11 +325,11 @@ export default function ContactPage() {
 
               {/* Direct WhatsApp Action Box */}
               <div className="p-6 bg-gradient-to-br from-emerald-950/60 to-[#071726] border border-emerald-500/30 rounded-3xl space-y-3">
-                <span className="text-[10px] uppercase font-bold text-emerald-400 tracking-wider">
+                <span className="text-[11px] uppercase font-bold text-emerald-400 tracking-wider">
                   INSTANT MESSAGING
                 </span>
                 <h4 className="font-bold text-base text-white">Direct WhatsApp with Managing Director</h4>
-                <p className="text-xs text-white/70">
+                <p className="text-xs text-ink-2">
                   Send packing photos, cargo manifests, or AWB tracking queries directly on WhatsApp for swift answers.
                 </p>
                 <a

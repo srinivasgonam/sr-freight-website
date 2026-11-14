@@ -14,7 +14,7 @@ export default function Footer() {
               <BrandLogo size="md" />
             </Link>
 
-            <p className="text-xs text-white/60 leading-relaxed">
+            <p className="text-sm text-ink-3 leading-relaxed">
               Established in 1995 with over 28+ years of dedicated freight experience. Operating as Hyderabad’s premier international freight forwarder, customs broker, and global courier partner.
             </p>
 
@@ -37,43 +37,43 @@ export default function Footer() {
 
           {/* Column 2: Core Services */}
           <div>
-            <h4 className="text-xs font-mono font-bold tracking-widest text-orange-400 uppercase mb-4">
+            <h4 className="text-xs font-display font-bold tracking-widest text-orange-400 uppercase mb-4">
               Services & Operations
             </h4>
-            <ul className="space-y-2.5 text-xs text-white/70">
+            <ul className="space-y-2.5 text-xs text-ink-2">
               <li>
                 <Link to="/services/air-freight" className="hover:text-white transition flex items-center justify-between">
-                  <span>✈ International Air Cargo (RGIA)</span>
+                  <span>International Air Cargo (RGIA)</span>
                   <ArrowUpRight size={12} className="text-white/30" />
                 </Link>
               </li>
               <li>
                 <Link to="/services/ocean-freight" className="hover:text-white transition flex items-center justify-between">
-                  <span>🚢 Ocean FCL & LCL (ICD Sanathnagar)</span>
+                  <span>Ocean FCL & LCL (ICD Sanathnagar)</span>
                   <ArrowUpRight size={12} className="text-white/30" />
                 </Link>
               </li>
               <li>
                 <Link to="/services/door-to-door" className="hover:text-white transition flex items-center justify-between">
-                  <span>📦 Worldwide Express Courier</span>
+                  <span>Worldwide Express Courier</span>
                   <ArrowUpRight size={12} className="text-white/30" />
                 </Link>
               </li>
               <li>
                 <Link to="/services/customs-clearance" className="hover:text-white transition flex items-center justify-between">
-                  <span>📋 Customs House Agent (CHA)</span>
+                  <span>Customs House Agent (CHA)</span>
                   <ArrowUpRight size={12} className="text-white/30" />
                 </Link>
               </li>
               <li>
                 <Link to="/services/warehousing" className="hover:text-white transition flex items-center justify-between">
-                  <span>🏢 Warehousing & Distribution</span>
+                  <span>Warehousing & Distribution</span>
                   <ArrowUpRight size={12} className="text-white/30" />
                 </Link>
               </li>
               <li>
                 <Link to="/calculator" className="text-orange-400 hover:text-orange-300 font-semibold transition flex items-center justify-between">
-                  <span>⚡ Instant Freight Rate Estimator</span>
+                  <span>Instant Freight Rate Estimator</span>
                   <ArrowUpRight size={12} />
                 </Link>
               </li>
@@ -82,10 +82,10 @@ export default function Footer() {
 
           {/* Column 3: Begumpet Office & Contacts */}
           <div>
-            <h4 className="text-xs font-mono font-bold tracking-widest text-orange-400 uppercase mb-4">
+            <h4 className="text-xs font-display font-bold tracking-widest text-orange-400 uppercase mb-4">
               Begumpet Head Office
             </h4>
-            <address className="not-italic text-xs text-white/70 space-y-3">
+            <address className="not-italic text-xs text-ink-2 space-y-3">
               <p className="flex items-start gap-2.5">
                 <MapPin size={16} className="text-orange-400 shrink-0 mt-0.5" />
                 <span>
@@ -99,7 +99,7 @@ export default function Footer() {
                 </a>
               </p>
               <p className="flex items-center gap-2.5">
-                <Phone size={15} className="text-white/40 shrink-0" />
+                <Phone size={15} className="text-ink-4 shrink-0" />
                 <span>Office: {COMPANY.landline}</span>
               </p>
               <p className="flex items-center gap-2.5">
@@ -113,33 +113,33 @@ export default function Footer() {
 
           {/* Column 4: Operational Hubs & Timings */}
           <div>
-            <h4 className="text-xs font-mono font-bold tracking-widest text-orange-400 uppercase mb-4">
+            <h4 className="text-xs font-display font-bold tracking-widest text-orange-400 uppercase mb-4">
               Timings & Key Hubs
             </h4>
-            <div className="space-y-3 text-xs text-white/70">
+            <div className="space-y-3 text-xs text-ink-2">
               <div className="flex items-start gap-2">
                 <Clock size={15} className="text-orange-400 shrink-0 mt-0.5" />
                 <div>
                   <span className="text-white font-semibold block">{COMPANY.workingHours.weekdays}</span>
-                  <span className="text-[11px] text-emerald-400 font-medium">24/7 Operations Desk for Live Air Cargo</span>
+                  <span className="text-[12px] text-emerald-400 font-medium">24/7 Operations Desk for Live Air Cargo</span>
                 </div>
               </div>
 
               <div className="p-3 bg-white/5 rounded-xl border border-white/10 space-y-1">
-                <span className="text-[10px] text-white/40 uppercase tracking-widest font-bold block">
+                <span className="text-[11px] text-ink-4 uppercase tracking-widest font-bold block">
                   Hyderabad Logistics Gateways
                 </span>
-                <span className="text-white font-medium block text-[11px]">• Air Cargo: RGIA Airport (HYD)</span>
-                <span className="text-white font-medium block text-[11px]">• Ocean Dry Port: ICD Sanathnagar</span>
-                <span className="text-white font-medium block text-[11px]">• Gateway Seaports: JNPT & Chennai</span>
+                <span className="text-white font-medium block text-[12px]">• Air Cargo: RGIA Airport (HYD)</span>
+                <span className="text-white font-medium block text-[12px]">• Ocean Dry Port: ICD Sanathnagar</span>
+                <span className="text-white font-medium block text-[12px]">• Gateway Seaports: JNPT & Chennai</span>
               </div>
 
               <div className="pt-1">
                 <Link
                   to="/admin"
-                  className="text-[11px] text-white/40 hover:text-white transition flex items-center gap-1 font-mono uppercase tracking-wider"
+                  className="text-[12px] text-ink-4 hover:text-white transition flex items-center gap-1 font-display uppercase tracking-wider"
                 >
-                  Admin / Operations Portal →
+                  Admin / Operations Portal
                 </Link>
               </div>
             </div>
@@ -147,7 +147,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Strip */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-4">
           <p>© {new Date().getFullYear()} S R Freight (S.R. Freight Logistics & Transport). All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link to="/about" className="hover:text-white transition">About</Link>

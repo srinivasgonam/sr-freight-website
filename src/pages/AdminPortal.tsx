@@ -269,7 +269,7 @@ export default function AdminPortal() {
             <Lock size={28} />
           </div>
           <h2 className="text-2xl font-black text-white">S R Freight Staff Portal</h2>
-          <p className="text-xs text-white/60 mt-1 mb-6">
+          <p className="text-xs text-ink-3 mt-1 mb-6">
             Authorized Begumpet Operations & Quotations Management
           </p>
 
@@ -293,7 +293,7 @@ export default function AdminPortal() {
           </form>
 
           <div className="mt-6 pt-5 border-t border-white/10">
-            <Link to="/" className="text-xs text-white/50 hover:text-white inline-flex items-center gap-1.5 transition">
+            <Link to="/" className="text-xs text-ink-4 hover:text-white inline-flex items-center gap-1.5 transition">
               <ArrowLeft size={13} /> Return to Public Website
             </Link>
           </div>
@@ -308,17 +308,17 @@ export default function AdminPortal() {
       <header className="bg-[#071726] border-b border-white/10 sticky top-0 z-30">
         <div className="shell py-4 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Link to="/" className="text-white/60 hover:text-white p-2 bg-white/5 rounded-lg transition" title="Back to site">
+            <Link to="/" className="text-ink-3 hover:text-white p-2 bg-white/5 rounded-lg transition" title="Back to site">
               <ArrowLeft size={16} />
             </Link>
             <div>
               <h1 className="text-base font-black tracking-wide flex items-center gap-2">
                 <span>S R FREIGHT</span>
-                <span className="text-[10px] bg-orange-500/20 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded-full font-bold">
+                <span className="text-[11px] bg-orange-500/20 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded-full font-bold">
                   OPERATIONS DESK
                 </span>
               </h1>
-              <p className="text-[11px] text-white/50">Begumpet Hub • Managing Director: {COMPANY.founder}</p>
+              <p className="text-[12px] text-ink-4">Begumpet Hub • Managing Director: {COMPANY.founder}</p>
             </div>
           </div>
 
@@ -346,42 +346,42 @@ export default function AdminPortal() {
       <div className="shell py-8 space-y-8">
         {/* KPI Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="p-5 bg-[#071726] border border-white/10 rounded-2xl">
-            <span className="text-[11px] text-white/50 uppercase font-bold tracking-wider block mb-1">
+          <div className="p-5 surface rounded-2xl">
+            <span className="text-[12px] text-ink-4 uppercase font-bold tracking-wider block mb-1">
               Total Inquiries
             </span>
             <span className="text-3xl font-black text-white">{stats?.totalQuotes ?? quotes.length}</span>
-            <span className="text-[10px] text-orange-400 block mt-1">From online & Begumpet desk</span>
+            <span className="text-[11px] text-orange-400 block mt-1">From online & Begumpet desk</span>
           </div>
 
-          <div className="p-5 bg-[#071726] border border-white/10 rounded-2xl">
-            <span className="text-[11px] text-white/50 uppercase font-bold tracking-wider block mb-1">
+          <div className="p-5 surface rounded-2xl">
+            <span className="text-[12px] text-ink-4 uppercase font-bold tracking-wider block mb-1">
               Pending Review
             </span>
             <span className="text-3xl font-black text-amber-300">
               {stats?.pendingQuotes ?? quotes.filter((q) => q.status === 'new').length}
             </span>
-            <span className="text-[10px] text-white/40 block mt-1">Requires tariff quotation</span>
+            <span className="text-[11px] text-ink-4 block mt-1">Requires tariff quotation</span>
           </div>
 
-          <div className="p-5 bg-[#071726] border border-white/10 rounded-2xl">
-            <span className="text-[11px] text-white/50 uppercase font-bold tracking-wider block mb-1">
+          <div className="p-5 surface rounded-2xl">
+            <span className="text-[12px] text-ink-4 uppercase font-bold tracking-wider block mb-1">
               Active Shipments
             </span>
             <span className="text-3xl font-black text-sky-400">
               {stats?.activeShipments ?? shipments.length}
             </span>
-            <span className="text-[10px] text-white/40 block mt-1">Live in transit / customs</span>
+            <span className="text-[11px] text-ink-4 block mt-1">Live in transit / customs</span>
           </div>
 
-          <div className="p-5 bg-[#071726] border border-white/10 rounded-2xl">
-            <span className="text-[11px] text-white/50 uppercase font-bold tracking-wider block mb-1">
+          <div className="p-5 surface rounded-2xl">
+            <span className="text-[12px] text-ink-4 uppercase font-bold tracking-wider block mb-1">
               Contact Queries
             </span>
             <span className="text-3xl font-black text-emerald-400">
               {stats?.contactMessages ?? contacts.length}
             </span>
-            <span className="text-[10px] text-white/40 block mt-1">Direct general messages</span>
+            <span className="text-[11px] text-ink-4 block mt-1">Direct general messages</span>
           </div>
         </div>
 
@@ -452,7 +452,7 @@ export default function AdminPortal() {
             {/* Filter bar */}
             <div className="flex flex-col sm:flex-row gap-3 bg-[#071726] p-3 rounded-xl border border-white/10">
               <div className="relative flex-1">
-                <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
+                <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-4" />
                 <input
                   type="text"
                   value={quoteSearch}
@@ -464,7 +464,7 @@ export default function AdminPortal() {
               </div>
 
               <div className="flex items-center gap-2">
-                <Filter size={14} className="text-white/40 ml-2" />
+                <Filter size={14} className="text-ink-4 ml-2" />
                 <select
                   value={quoteFilter}
                   onChange={(e) => setQuoteFilter(e.target.value)}
@@ -480,9 +480,9 @@ export default function AdminPortal() {
             </div>
 
             {/* Quotes Table */}
-            <div className="bg-[#071726] border border-white/10 rounded-2xl overflow-x-auto shadow-xl">
+            <div className="surface rounded-2xl overflow-x-auto shadow-xl">
               <table className="w-full text-left text-xs">
-                <thead className="bg-[#05111d] text-white/50 uppercase tracking-wider font-mono border-b border-white/10">
+                <thead className="bg-[#05111d] text-ink-4 uppercase tracking-wider font-display border-b border-white/10">
                   <tr>
                     <th className="py-3 px-4">Ref Code</th>
                     <th className="py-3 px-4">Client / Company</th>
@@ -493,10 +493,10 @@ export default function AdminPortal() {
                     <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5 text-white/80">
+                <tbody className="divide-y divide-white/5 text-ink-2">
                   {quotes.length === 0 ? (
                     <tr>
-                      <td colSpan={7} className="py-8 text-center text-white/40">
+                      <td colSpan={7} className="py-8 text-center text-ink-4">
                         No quote inquiries found matching this criteria.
                       </td>
                     </tr>
@@ -505,28 +505,28 @@ export default function AdminPortal() {
                       <tr key={q.id} className="hover:bg-white/5 transition">
                         <td className="py-3.5 px-4 font-mono font-bold text-orange-400 whitespace-nowrap">
                           {q.ref_code}
-                          <span className="block text-[10px] text-white/40 font-normal">
+                          <span className="block text-[11px] text-ink-4 font-normal">
                             {new Date(q.created_at).toLocaleDateString()}
                           </span>
                         </td>
                         <td className="py-3.5 px-4">
                           <span className="font-bold text-white block">{q.name}</span>
-                          <span className="text-[11px] text-white/60 block">{q.company || 'Individual'}</span>
-                          <span className="text-[10px] text-white/40">{q.phone} • {q.email}</span>
+                          <span className="text-[12px] text-ink-3 block">{q.company || 'Individual'}</span>
+                          <span className="text-[11px] text-ink-4">{q.phone} • {q.email}</span>
                         </td>
                         <td className="py-3.5 px-4">
                           <span className="font-semibold text-white block capitalize">
                             {q.service_type.replace('-', ' ')}
                           </span>
-                          <span className="text-[11px] text-white/60">
+                          <span className="text-[12px] text-ink-3">
                             {q.origin} → {q.destination}
                           </span>
                         </td>
                         <td className="py-3.5 px-4">
                           <span className="font-bold text-white block">{q.weight_kg} KG</span>
-                          <span className="text-[10px] text-white/50 block capitalize">{q.cargo_type}</span>
+                          <span className="text-[11px] text-ink-4 block capitalize">{q.cargo_type}</span>
                           {q.dimensions && (
-                            <span className="text-[10px] text-white/40 truncate max-w-[150px] block">
+                            <span className="text-[11px] text-ink-4 truncate max-w-[150px] block">
                               {q.dimensions}
                             </span>
                           )}
@@ -537,14 +537,14 @@ export default function AdminPortal() {
                               ₹{q.quoted_amount.toLocaleString('en-IN')}
                             </span>
                           ) : (
-                            <span className="text-white/40 italic">Pending quote</span>
+                            <span className="text-ink-4 italic">Pending quote</span>
                           )}
                         </td>
                         <td className="py-3.5 px-4">
                           <select
                             value={q.status}
                             onChange={(e) => handleUpdateQuote(q.id, e.target.value)}
-                            className="bg-black/30 border border-white/20 rounded px-2 py-1 text-[11px] font-semibold text-white focus:outline-none"
+                            className="bg-black/30 border border-white/20 rounded px-2 py-1 text-[12px] font-semibold text-white focus:outline-none"
                           >
                             <option value="new">New</option>
                             <option value="in_review">In Review</option>
@@ -561,7 +561,7 @@ export default function AdminPortal() {
                                 handleUpdateQuote(q.id, q.status, parseFloat(amount) || 0)
                               }
                             }}
-                            className="p-1.5 bg-white/5 hover:bg-white/10 rounded text-white/70 hover:text-white transition"
+                            className="p-1.5 bg-white/5 hover:bg-white/10 rounded text-ink-2 hover:text-white transition"
                             title="Set Quote Amount"
                           >
                             <Edit3 size={13} />
@@ -587,9 +587,9 @@ export default function AdminPortal() {
         {/* Tab 2: Shipments Management */}
         {activeTab === 'shipments' && (
           <div className="space-y-4">
-            <div className="bg-[#071726] border border-white/10 rounded-2xl overflow-x-auto shadow-xl">
+            <div className="surface rounded-2xl overflow-x-auto shadow-xl">
               <table className="w-full text-left text-xs">
-                <thead className="bg-[#05111d] text-white/50 uppercase tracking-wider font-mono border-b border-white/10">
+                <thead className="bg-[#05111d] text-ink-4 uppercase tracking-wider font-display border-b border-white/10">
                   <tr>
                     <th className="py-3 px-4">AWB / Tracking ID</th>
                     <th className="py-3 px-4">Client</th>
@@ -600,7 +600,7 @@ export default function AdminPortal() {
                     <th className="py-3 px-4 text-right">Live View</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5 text-white/80">
+                <tbody className="divide-y divide-white/5 text-ink-2">
                   {shipments.map((s) => (
                     <tr key={s.id} className="hover:bg-white/5 transition">
                       <td className="py-3.5 px-4 font-mono font-bold text-orange-400 whitespace-nowrap">
@@ -609,21 +609,21 @@ export default function AdminPortal() {
                       <td className="py-3.5 px-4 font-bold text-white">{s.customer_name}</td>
                       <td className="py-3.5 px-4">
                         <span className="font-semibold text-white block">{s.service_mode}</span>
-                        <span className="text-[10px] text-white/50">{s.carrier} ({s.flight_vessel})</span>
+                        <span className="text-[11px] text-ink-4">{s.carrier} ({s.flight_vessel})</span>
                       </td>
-                      <td className="py-3.5 px-4 text-white/70">
+                      <td className="py-3.5 px-4 text-ink-2">
                         {s.origin.split(',')[0]} → {s.destination.split(',')[0]}
                       </td>
                       <td className="py-3.5 px-4">
                         <span className="font-bold text-emerald-400 block">{s.status_label}</span>
-                        <span className="text-[10px] text-white/50">{s.current_location}</span>
+                        <span className="text-[11px] text-ink-4">{s.current_location}</span>
                       </td>
                       <td className="py-3.5 px-4 text-amber-300 font-medium">{s.eta}</td>
                       <td className="py-3.5 px-4 text-right">
                         <Link
                           to={`/track?id=${s.tracking_number}`}
                           target="_blank"
-                          className="px-2.5 py-1 bg-white/5 hover:bg-white/10 text-white rounded text-[11px] inline-flex items-center gap-1 transition"
+                          className="px-2.5 py-1 bg-white/5 hover:bg-white/10 text-white rounded text-[12px] inline-flex items-center gap-1 transition"
                         >
                           Customer View <ExternalLink size={11} />
                         </Link>
@@ -639,9 +639,9 @@ export default function AdminPortal() {
         {/* Tab 3: Contact Messages */}
         {activeTab === 'contacts' && (
           <div className="space-y-4">
-            <div className="bg-[#071726] border border-white/10 rounded-2xl overflow-x-auto shadow-xl">
+            <div className="surface rounded-2xl overflow-x-auto shadow-xl">
               <table className="w-full text-left text-xs">
-                <thead className="bg-[#05111d] text-white/50 uppercase tracking-wider font-mono border-b border-white/10">
+                <thead className="bg-[#05111d] text-ink-4 uppercase tracking-wider font-display border-b border-white/10">
                   <tr>
                     <th className="py-3 px-4">Date</th>
                     <th className="py-3 px-4">From</th>
@@ -650,25 +650,25 @@ export default function AdminPortal() {
                     <th className="py-3 px-4 text-right">Phone</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5 text-white/80">
+                <tbody className="divide-y divide-white/5 text-ink-2">
                   {contacts.length === 0 ? (
                     <tr>
-                      <td colSpan={5} className="py-8 text-center text-white/40">
+                      <td colSpan={5} className="py-8 text-center text-ink-4">
                         No contact inquiries received yet.
                       </td>
                     </tr>
                   ) : (
                     contacts.map((c) => (
                       <tr key={c.id} className="hover:bg-white/5 transition">
-                        <td className="py-3.5 px-4 text-white/40 whitespace-nowrap">
+                        <td className="py-3.5 px-4 text-ink-4 whitespace-nowrap">
                           {new Date(c.created_at).toLocaleDateString()}
                         </td>
                         <td className="py-3.5 px-4">
                           <span className="font-bold text-white block">{c.name}</span>
-                          <span className="text-[11px] text-white/50">{c.email}</span>
+                          <span className="text-[12px] text-ink-4">{c.email}</span>
                         </td>
                         <td className="py-3.5 px-4 font-semibold text-orange-300">{c.subject}</td>
-                        <td className="py-3.5 px-4 text-white/70 max-w-md">{c.message}</td>
+                        <td className="py-3.5 px-4 text-ink-2 max-w-md">{c.message}</td>
                         <td className="py-3.5 px-4 text-right font-mono text-emerald-400">
                           {c.phone || 'N/A'}
                         </td>
@@ -689,19 +689,19 @@ export default function AdminPortal() {
             <h3 className="text-xl font-black text-white mb-4">Generate New Consignment Tracking AWB</h3>
             <form onSubmit={handleCreateShipment} className="space-y-4 text-xs">
               <div>
-                <label className="block text-white/60 mb-1">Tracking Number / AWB</label>
+                <label className="block text-ink-3 mb-1">Tracking Number / AWB</label>
                 <input
                   type="text"
                   value={newShipmentData.tracking_number}
                   onChange={(e) => setNewShipmentData({ ...newShipmentData, tracking_number: e.target.value })}
                   placeholder="e.g. SR-AIR-88210 (Leave blank for auto-generate)"
-                  className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white font-mono uppercase"
+                  className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white font-display uppercase"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-white/60 mb-1">Customer / Consignee Name *</label>
+                  <label className="block text-ink-3 mb-1">Customer / Consignee Name *</label>
                   <input
                     required
                     type="text"
@@ -711,7 +711,7 @@ export default function AdminPortal() {
                   />
                 </div>
                 <div>
-                  <label className="block text-white/60 mb-1">Service Mode</label>
+                  <label className="block text-ink-3 mb-1">Service Mode</label>
                   <select
                     value={newShipmentData.service_mode}
                     onChange={(e) => setNewShipmentData({ ...newShipmentData, service_mode: e.target.value })}
@@ -727,7 +727,7 @@ export default function AdminPortal() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-white/60 mb-1">Origin Point *</label>
+                  <label className="block text-ink-3 mb-1">Origin Point *</label>
                   <input
                     required
                     type="text"
@@ -737,7 +737,7 @@ export default function AdminPortal() {
                   />
                 </div>
                 <div>
-                  <label className="block text-white/60 mb-1">Destination Point *</label>
+                  <label className="block text-ink-3 mb-1">Destination Point *</label>
                   <input
                     required
                     type="text"
@@ -750,7 +750,7 @@ export default function AdminPortal() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-white/60 mb-1">Carrier / Airline / Shipping Line</label>
+                  <label className="block text-ink-3 mb-1">Carrier / Airline / Shipping Line</label>
                   <input
                     type="text"
                     value={newShipmentData.carrier}
@@ -759,7 +759,7 @@ export default function AdminPortal() {
                   />
                 </div>
                 <div>
-                  <label className="block text-white/60 mb-1">Flight / Vessel No.</label>
+                  <label className="block text-ink-3 mb-1">Flight / Vessel No.</label>
                   <input
                     type="text"
                     value={newShipmentData.flight_vessel}
@@ -771,7 +771,7 @@ export default function AdminPortal() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-white/60 mb-1">Weight (KG)</label>
+                  <label className="block text-ink-3 mb-1">Weight (KG)</label>
                   <input
                     type="number"
                     value={newShipmentData.weight_kg}
@@ -780,7 +780,7 @@ export default function AdminPortal() {
                   />
                 </div>
                 <div>
-                  <label className="block text-white/60 mb-1">Est. Delivery Date</label>
+                  <label className="block text-ink-3 mb-1">Est. Delivery Date</label>
                   <input
                     type="text"
                     value={newShipmentData.estimated_delivery}

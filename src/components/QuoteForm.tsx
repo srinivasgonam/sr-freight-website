@@ -82,20 +82,20 @@ export default function QuoteForm({
         <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-5 border border-emerald-500/30">
           <CheckCircle2 size={36} />
         </div>
-        <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest block mb-2">
+        <span className="eyebrow mb-3">
           ENQUIRY REGISTERED SUCCESSFULLY
         </span>
         <h3 className="text-2xl sm:text-3xl font-black text-white mb-2">Thank you, {successQuote.name}!</h3>
-        <p className="text-sm text-white/70 max-w-md mx-auto mb-6">
+        <p className="text-sm text-ink-2 max-w-md mx-auto mb-6">
           Your quote request has been routed directly to our senior Begumpet operations desk with 28+ years of freight expertise.
         </p>
 
         <div className="bg-white/5 border border-white/10 rounded-2xl p-5 mb-6 max-w-sm mx-auto">
-          <span className="text-[10px] text-white/40 uppercase tracking-widest block font-bold mb-1">
+          <span className="text-[11px] text-ink-4 uppercase tracking-widest block font-bold mb-1">
             OFFICIAL REFERENCE NUMBER
           </span>
-          <span className="text-2xl font-mono font-black text-orange-400">{successQuote.ref_code}</span>
-          <span className="text-[11px] text-white/50 block mt-1">Please quote this reference in all correspondence</span>
+          <span className="text-2xl font-display font-black text-orange-400">{successQuote.ref_code}</span>
+          <span className="text-[12px] text-ink-4 block mt-1">Please quote this reference in all correspondence</span>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -144,12 +144,12 @@ export default function QuoteForm({
     >
       <div className="flex items-center justify-between pb-6 mb-6 border-b border-white/10">
         <div>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-orange-400 font-bold block">
+          <span className="text-[11px] font-display uppercase tracking-widest text-orange-400 font-bold block">
             INTERNATIONAL FREIGHT ENQUIRY
           </span>
           <h3 className="text-xl sm:text-2xl font-black text-white">Request Official Freight Quote</h3>
         </div>
-        <div className="hidden sm:flex items-center gap-2 text-xs text-white/60">
+        <div className="hidden sm:flex items-center gap-2 text-xs text-ink-3">
           <Phone size={13} className="text-emerald-400" />
           <span>Call: {COMPANY.phone}</span>
         </div>
@@ -165,7 +165,7 @@ export default function QuoteForm({
       {/* Row 1: Contact details */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
             Your Full Name *
           </label>
           <input
@@ -179,7 +179,7 @@ export default function QuoteForm({
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
             Work Email *
           </label>
           <input
@@ -196,7 +196,7 @@ export default function QuoteForm({
       {/* Row 2: Phone & Company */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
             Phone / Mobile Number *
           </label>
           <input
@@ -210,7 +210,7 @@ export default function QuoteForm({
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
             Company / Organization
           </label>
           <input
@@ -226,7 +226,7 @@ export default function QuoteForm({
       {/* Row 3: Service Type & Cargo Profile */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
             Shipping Mode *
           </label>
           <select
@@ -234,17 +234,17 @@ export default function QuoteForm({
             onChange={(e) => setFormData({ ...formData, service_type: e.target.value })}
             className="w-full px-4 py-3 bg-[#0a1c2e] border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-orange-500"
           >
-            <option value="air-freight">✈ International Air Freight (RGIA Airport)</option>
-            <option value="ocean-freight">🚢 Ocean Freight (FCL Container / LCL Consolidation)</option>
-            <option value="courier">📦 Worldwide Express Courier (Australia, USA, UK, Gulf)</option>
-            <option value="customs">📋 Customs Clearance / CHA Brokerage</option>
-            <option value="warehousing">🏢 Warehousing & Distribution</option>
-            <option value="door-to-door">🚚 End-to-End Door-to-Door Service</option>
+            <option value="air-freight">International Air Freight (RGIA Airport)</option>
+            <option value="ocean-freight">Ocean Freight (FCL Container / LCL Consolidation)</option>
+            <option value="courier">Worldwide Express Courier (Australia, USA, UK, Gulf)</option>
+            <option value="customs">Customs Clearance / CHA Brokerage</option>
+            <option value="warehousing">Warehousing & Distribution</option>
+            <option value="door-to-door">End-to-End Door-to-Door Service</option>
           </select>
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
             Cargo Profile
           </label>
           <select
@@ -265,7 +265,7 @@ export default function QuoteForm({
       {/* Row 4: Origin & Destination */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
             Origin (Pickup Location) *
           </label>
           <input
@@ -279,7 +279,7 @@ export default function QuoteForm({
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
             Destination (Port / Airport / City) *
           </label>
           <input
@@ -296,7 +296,7 @@ export default function QuoteForm({
       {/* Row 5: Weight & Dimensions */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
             Estimated Weight (KG)
           </label>
           <input
@@ -311,7 +311,7 @@ export default function QuoteForm({
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
             Dimensions / Packages Description
           </label>
           <input
@@ -326,7 +326,7 @@ export default function QuoteForm({
 
       {/* Row 6: Message / Instructions */}
       <div className="mb-6">
-        <label className="block text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">
+        <label className="block text-xs font-bold text-ink-2 uppercase tracking-wider mb-1.5">
           Special Handling, Timeline or Customs Notes
         </label>
         <textarea
@@ -351,7 +351,7 @@ export default function QuoteForm({
         <span>{loading ? 'Submitting to Begumpet Desk...' : 'Request Formal Quote & Route Plan'}</span>
       </button>
 
-      <p className="text-center text-[11px] text-white/40 mt-4">
+      <p className="text-center text-[12px] text-ink-4 mt-4">
         Your enquiry is strictly private. We never share your cargo or contact information.
       </p>
     </form>

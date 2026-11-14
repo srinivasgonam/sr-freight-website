@@ -1,8 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import BrandLogo from './BrandLogo'
-import { Phone, Mail, MapPin, ChevronDown, Menu, X, ArrowUpRight, Search, Calculator } from 'lucide-react'
+import { Phone, Mail, MapPin, ChevronDown, Menu, X, ArrowUpRight, Search, Calculator, Plane, Ship, PackageCheck, ShieldCheck, Warehouse } from 'lucide-react'
 import { COMPANY } from '../data/companyInfo'
+
+const SERVICE_LINKS = [
+  { to: '/services/air-freight', Icon: Plane, title: 'International Air Cargo', note: 'From RGIA, Hyderabad' },
+  { to: '/services/ocean-freight', Icon: Ship, title: 'Ocean Freight FCL & LCL', note: 'Via ICD Sanathnagar' },
+  { to: '/services/door-to-door', Icon: PackageCheck, title: 'Worldwide Courier', note: 'Australia, USA, UK and Gulf' },
+  { to: '/services/customs-clearance', Icon: ShieldCheck, title: 'Customs Clearance', note: 'Custom House Agent (CHA)' },
+  { to: '/services/warehousing', Icon: Warehouse, title: 'Warehousing & Distribution', note: '3PL storage and dispatch' },
+]
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -21,14 +29,14 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Top Notification & Contact Strip */}
-      <div className="bg-[#040e18] text-white/80 text-[11px] font-medium border-b border-white/10 hidden lg:block">
+      <div className="bg-[#040e18] text-ink-2 text-[12px] font-medium border-b border-white/10 hidden lg:block">
         <div className="shell flex justify-between items-center py-2">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5 text-orange-400 font-semibold tracking-wide">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Begumpet, Hyderabad Hub — 28+ Years Trusted Service
             </span>
-            <span className="text-white/40 hidden xl:inline">|</span>
+            <span className="text-ink-4 hidden xl:inline">|</span>
             <span className="hidden xl:flex items-center gap-1.5 hover:text-white transition">
               <MapPin size={12} className="text-orange-400" />
               Bharani Complex, Minister Road, Begumpet
@@ -39,13 +47,13 @@ export default function Navbar() {
               <Phone size={12} className="text-orange-400" />
               {COMPANY.phone}
             </a>
-            <span className="text-white/40">|</span>
+            <span className="text-ink-4">|</span>
             <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-1.5 hover:text-white transition">
               <Mail size={12} className="text-orange-400" />
               {COMPANY.email}
             </a>
-            <span className="text-white/40">|</span>
-            <Link to="/admin" className="text-white/50 hover:text-white text-[10px] tracking-wider uppercase font-bold transition">
+            <span className="text-ink-4">|</span>
+            <Link to="/admin" className="text-ink-4 hover:text-white text-[11px] tracking-wider uppercase font-bold transition">
               Staff Portal
             </Link>
           </div>
@@ -76,37 +84,33 @@ export default function Navbar() {
             </Link>
 
             {servicesDropdownOpen && (
-              <div className="absolute top-full left-0 w-72 bg-[#0a1c2e] border border-white/15 rounded-xl shadow-2xl p-2.5 z-50 animate-in whitespace-normal">
-                <Link to="/services" className="block px-3 py-2 text-xs font-bold text-orange-400 hover:bg-white/5 rounded-lg mb-1">
-                  All Logistics Capabilities →
-                </Link>
-                <div className="h-[1px] bg-white/10 my-1" />
-                <Link to="/services/air-freight" className="block px-3 py-2 text-xs text-white/80 hover:text-white hover:bg-white/10 rounded-lg">
-                  ✈ International Air Cargo (RGIA)
-                </Link>
-                <Link to="/services/ocean-freight" className="block px-3 py-2 text-xs text-white/80 hover:text-white hover:bg-white/10 rounded-lg">
-                  🚢 Ocean Freight FCL & LCL (ICD)
-                </Link>
-                <Link to="/services/door-to-door" className="block px-3 py-2 text-xs text-white/80 hover:text-white hover:bg-white/10 rounded-lg">
-                  📦 Worldwide Courier (Australia/USA)
-                </Link>
-                <Link to="/services/customs-clearance" className="block px-3 py-2 text-xs text-white/80 hover:text-white hover:bg-white/10 rounded-lg">
-                  📋 Customs Clearance (CHA)
-                </Link>
-                <Link to="/services/warehousing" className="block px-3 py-2 text-xs text-white/80 hover:text-white hover:bg-white/10 rounded-lg">
-                  🏢 3PL Warehousing & Distribution
-                </Link>
+              <div className="absolute top-full left-0 pt-2 z-50 animate-in whitespace-normal">
+                <div className="w-80 surface rounded-2xl shadow-2xl p-2">
+                  {SERVICE_LINKS.map(({ to, Icon, title, note }) => (
+                    <Link key={to} to={to} className="flex items-center gap-3 px-2.5 py-2 rounded-xl hover:bg-white/5 group/item transition">
+                      <span className="w-9 h-9 shrink-0 rounded-lg bg-orange-500/10 text-orange-400 group-hover/item:bg-orange-500 group-hover/item:text-white flex items-center justify-center transition">
+                        <Icon size={17} />
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block text-sm font-semibold text-white leading-tight">{title}</span>
+                        <span className="block text-[12px] text-ink-4 font-normal">{note}</span>
+                      </span>
+                    </Link>
+                  ))}
+                  <div className="h-px bg-white/10 my-1.5" />
+                  <Link to="/services" className="flex items-center justify-between px-3 py-2 text-xs font-semibold text-orange-400 hover:bg-white/5 rounded-lg">
+                    <span>View all services</span> <ArrowUpRight size={14} />
+                  </Link>
+                </div>
               </div>
             )}
           </div>
 
           <Link to="/track" className={`navlink ${isActive('/track') ? 'is-active' : ''}`}>
-            <Search size={14} className="text-orange-400" />
             Track Shipment
           </Link>
 
           <Link to="/calculator" className={`navlink ${isActive('/calculator') ? 'is-active' : ''}`}>
-            <Calculator size={14} className="text-orange-400" />
             Rate Calculator
           </Link>
 
@@ -132,7 +136,7 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <button
             type="button"
-            className="xl:hidden p-2 text-white/80 hover:text-white rounded-lg"
+            className="xl:hidden p-2 text-ink-2 hover:text-white rounded-lg"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Mobile Menu"
             aria-expanded={mobileMenuOpen}
@@ -159,21 +163,21 @@ export default function Navbar() {
           >
             All Services
           </Link>
-          <div className="pl-4 space-y-2 border-l border-white/15 text-xs text-white/70">
+          <div className="pl-4 space-y-2 border-l border-white/15 text-xs text-ink-2">
             <Link to="/services/air-freight" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-white">
-              ✈ International Air Freight (RGIA)
+              International Air Freight (RGIA)
             </Link>
             <Link to="/services/ocean-freight" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-white">
-              🚢 Ocean Container Cargo (ICD Sanathnagar)
+              Ocean Container Cargo (ICD Sanathnagar)
             </Link>
             <Link to="/services/door-to-door" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-white">
-              📦 Worldwide Courier (Australia / USA)
+              Worldwide Courier (Australia / USA)
             </Link>
             <Link to="/services/customs-clearance" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-white">
-              📋 Customs Clearance (CHA)
+              Customs Clearance (CHA)
             </Link>
             <Link to="/services/warehousing" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-white">
-              🏢 Warehousing & Distribution
+              Warehousing & Distribution
             </Link>
           </div>
           <Link
@@ -209,9 +213,9 @@ export default function Navbar() {
           <Link
             to="/admin"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-xs text-white/40 uppercase tracking-widest font-bold"
+            className="block py-2 text-xs text-ink-4 uppercase tracking-widest font-bold"
           >
-            Staff Dashboard →
+            Staff Dashboard
           </Link>
           <div className="pt-3 border-t border-white/10 grid grid-cols-1 min-[420px]:grid-cols-2 gap-2.5">
             <a href={`tel:${COMPANY.phoneRaw}`} className="glass-btn-frosted gap-2 py-3 rounded-xl text-sm font-bold">

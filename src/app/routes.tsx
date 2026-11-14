@@ -17,9 +17,9 @@ function NotFoundPage() {
       <Navbar />
       <main className="flex-1 flex items-center justify-center p-6 text-center">
         <div className="max-w-md space-y-4">
-          <span className="text-4xl font-black font-mono text-orange-400">404</span>
+          <span className="text-4xl font-black font-display text-orange-400">404</span>
           <h1 className="text-2xl font-bold text-white">This Route Has Moved</h1>
-          <p className="text-xs text-white/60">
+          <p className="text-xs text-ink-3">
             The page you requested is not available, but your next shipment can still start right here.
           </p>
           <div className="pt-2">
